@@ -6,6 +6,9 @@ class UserTripsController < ApplicationController
   end
 
   def create
+    @origin = Location.new(address: params[:address1])
+    @destination = Location.new(address: params[:address2])
+
     @search_results = Search.for(params[:address1, :address2])
     @location = Location.new(params)
     @latitude = @location.latitude
