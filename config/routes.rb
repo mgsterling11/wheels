@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :user_trips, except: :new
-  root to: 'user_trips#new' 
+  root to: 'user_trips#welcome' 
+  get '/search' => 'user_trips#create'
 
 
 

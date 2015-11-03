@@ -2,11 +2,11 @@ class UserTripsController < ApplicationController
 
 
   def new
-    # render 'welcome'
-
+    render 'welcome'
   end
 
   def create
+    @search_results = Search.for(params[:address1, :address2])
     @location = Location.new(params)
     @latitude = @location.latitude
     binding.pry
@@ -28,3 +28,5 @@ class UserTripsController < ApplicationController
     end
   end
 end
+
+
