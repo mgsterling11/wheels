@@ -11,8 +11,8 @@ class UserTripsController < ApplicationController
     ride = TaxiData.new
     search_results = ride.build_url(@origin.longitude, @origin.latitude, @destination.longitude, @destination.latitude)
     @cost = ride.calculate_fare(search_results)
-    @time = ride.calculate_fare(search_results)
-    binding.pry
+    @time = ride.calculate_time(search_results)
+    render 'show'
     # @search_results = Search.for(params[:address1, :address2])
     # @location = Location.new(params)
     # @latitude = @location.latitude
