@@ -6,6 +6,7 @@ class UserTripsController < ApplicationController
   end
 
   def create
+    binding.pry
     @origin = Location.new(address: params[:address1])
     @destination = Location.new(address: params[:address2])
 
