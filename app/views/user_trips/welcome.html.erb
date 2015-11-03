@@ -1,0 +1,11 @@
+
+
+<h1>Welcome to TaxiFares.com!</h1>
+
+
+<%= form_tag('/search', method: :post) do %>
+  <%=label_tag("Address 1")
+  
+  <%= text_field_tag(:starting_address)%>
+  <%= submit_tag("Search") %>
+<% end %> 

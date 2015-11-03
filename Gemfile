@@ -29,6 +29,7 @@ gem 'annotate'
 
 gem 'geocoder'
 gem 'time_diff'
+gem 'annotate'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -39,6 +40,7 @@ gem 'time_diff'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
 end
 
 group :development do
