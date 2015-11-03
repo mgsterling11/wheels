@@ -5,23 +5,26 @@ class TaxiData
 
   def build_url(plong, plat, dlong, dlat)
     pickup_longitude = plong
-      plong1 = pickup_longitude - 0.01
-      plong2 = pickup_longitude + 0.01
+      plong1 = pickup_longitude - 0.001
+      plong2 = pickup_longitude + 0.001
     pickup_latitude = plat
-      plat1 = pickup_latitude - 0.01
-      plat2 = pickup_latitude + 0.01
+      plat1 = pickup_latitude - 0.001
+      plat2 = pickup_latitude + 0.001
     dropoff_longitude = dlong
-      dlong1 = dropoff_longitude - 0.01
-      dlong2 = dropoff_longitude + 0.01
+      dlong1 = dropoff_longitude - 0.001
+      dlong2 = dropoff_longitude + 0.001
     dropoff_latitude = dlat
-      dlat1 = dropoff_latitude - 0.01
-      dlat2 = dropoff_latitude + 0.01
+      dlat1 = dropoff_latitude - 0.001
+      dlat2 = dropoff_latitude + 0.001
 
-    url_string = "https://data.cityofnewyork.us/resource/2np7-5jsg.json?$where=pickup_longitude%20%3E%20#{plong1}%20AND%20pickup_longitude%20%3C%20#{plong2}%20AND%20pickup_latitude%20%3E%20#{plat1}%20AND%20pickup_latitude%20%3C%20#{plat2}%20AND%20dropoff_longitude%20%3E%20#{dlong1}%20AND%20dropoff_longitude%20%3C%20#{dlong2}%20AND%20dropoff_latitude%20%3E%20#{dlat1}%20AND%20dropoff_latitude%20%3C%20#{dlat2}"
+    url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where=pickup_longitude%20%3E%20#{plong1}%20AND%20pickup_longitude%20%3C%20#{plong2}%20AND%20pickup_latitude%20%3E%20#{plat1}%20AND%20pickup_latitude%20%3C%20#{plat2}%20AND%20dropoff_longitude%20%3E%20#{dlong1}%20AND%20dropoff_longitude%20%3C%20#{dlong2}%20AND%20dropoff_latitude%20%3E%20#{dlat1}%20AND%20dropoff_latitude%20%3C%20#{dlat2}"
+    # url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=5000&$where=pickup_longitude%20%3E%20-74.00111938476563%20AND%20pickup_longitude%20%3C%20-73.98111938476562%20AND%20pickup_latitude%20%3E%2040.75047134399414%20AND%20pickup_latitude%20%3C%2040.77047134399414%20AND%20dropoff_longitude%20%3E%20-74.01748443603516%20AND%20dropoff_longitude%20%3C%20-73.99748443603515%20AND%20dropoff_latitude%20%3E%2040.730955352783205%20AND%20dropoff_latitude%20%3C%2040.7509553527832
+
   end
 end
 # %3C = <
 # %3E = >
+
 
 
 # def build_url(search_params)
