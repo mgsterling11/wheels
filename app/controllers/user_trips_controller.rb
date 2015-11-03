@@ -2,13 +2,16 @@ class UserTripsController < ApplicationController
 
 
   def new
-    render 'welcome'
+    # render 'welcome'
 
   end
 
   def create
+    @location = Location.new(params)
+    @latitude = @location.latitude
+    binding.pry
+    @longitude = @location.longitude
   end
-
 
 # New search => 
 
@@ -19,7 +22,9 @@ class UserTripsController < ApplicationController
     @trip.averagetime
 
     if Trip.create_or_find_by(search_params)
+      
     else 
       TaxiData.new
+    end
   end
 end
