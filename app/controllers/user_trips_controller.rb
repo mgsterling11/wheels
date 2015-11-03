@@ -6,15 +6,18 @@ class UserTripsController < ApplicationController
   end
 
   def create
+    @origin = Origin.find_or_create_by(address: params[:address1])
+    @destination = Destination.find_or_create_by(address: params[:address2])
+    ride = TaxiData.new
+    search_results = ride.build_url(@origin.longitude, @origin.latitude, @destination.longitude, @destination.latitude)
+    @cost = ride.calculate_fare(search_results)
+    @time = ride.calculate_fare(search_results)
     binding.pry
-    @origin = Location.new(address: params[:address1])
-    @destination = Location.new(address: params[:address2])
-
-    @search_results = Search.for(params[:address1, :address2])
-    @location = Location.new(params)
-    @latitude = @location.latitude
-    binding.pry
-    @longitude = @location.longitude
+    # @search_results = Search.for(params[:address1, :address2])
+    # @location = Location.new(params)
+    # @latitude = @location.latitude
+    # binding.pry
+    # @longitude = @location.longitude
   end
 
 # New search => 
