@@ -1,6 +1,7 @@
 require 'pry'
 class Uber 
 
+binding.pry
 
 ################ working code ###############
 # url_string = "https://api.uber.com/v1/estimates/price?start_latitude=#{params[:pickup_latitude]}&start_longitude=#{params[:pickup_longitude]}&end_latitude=#{params[:dropoff_latitude]}&end_longitude=#{params[:dropoff_longitude]}&server_token=1awe7eeZJLJ0MtUKWAuztdjprfE0siXFI8Bq2XO9"
@@ -15,26 +16,19 @@ class Uber
     test_data = JSON.load(data)
   end
 
-  def build_uber(trip)
+  def build_uber_url(trip)
     # params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
-    binding.pry
+    # binding.pry
     url_string = "https://api.uber.com/v1/estimates/price?start_latitude=#{params[pickup_latitude]}&start_longitude=#{params[pickup_longitude]}&end_latitude=#{params[dropoff_latitude]}&end_longitude=#{params[dropoff_longitude]}&server_token=1awe7eeZJLJ0MtUKWAuztdjprfE0siXFI8Bq2XO9"
   end
 
-
+  def return_uber_results(results)
+    uber_hash = results.map do |hash|
+      hash["localized_display_name"]
+      hash["duration"] / 60
+      hash["estimate"]
+    end  
+    uber_hash
+  end
+  
 end
-
-  # def build_url(trip)
-  #   params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
-
-  #   url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where="
-
-  #     params.each do | attribute, data |
-  #       range1 = data - 0.001
-  #       range2 = data + 0.001
-  #       url_string += "#{attribute}%20%3E%20#{range1}%20AND%20#{attribute}%20%3C%20#{range2}%20AND%20"
-  #     end
-
-  #   url_string.chomp("%20AND%20")
-
-  # end  
