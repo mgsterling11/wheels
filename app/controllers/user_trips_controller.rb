@@ -23,8 +23,7 @@ class UserTripsController < ApplicationController
     uber_trip = Uber.new
     uber_url = uber_trip.build_uber_url(@trip)
     uber_results = uber_trip.connection(uber_url)
-    @uber_ride = uber_trip.return_uber_results(uber_results)
-    binding.pry
+    @uber_rides = uber_trip.return_uber_results(uber_results)
 
     #add yellow and green cab results
     total_results = yellow_search_results.concat(green_search_results)

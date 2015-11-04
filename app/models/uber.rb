@@ -21,13 +21,22 @@ class Uber
   end
 
   def return_uber_results(results)
-    uber_hash = {}
-    uber_hash = results.map do |hash|
-      hash["localized_display_name".to_i]
-      # hash["duration"] / 60
-      # hash["estimate"]
+    uber_hash = results["prices"].map do |hash|
+      {"localized_display_name" => hash["localized_display_name"],
+      "duration" => (hash["duration"] / 60),
+      "estimate" => hash["estimate"]}
     end  
     uber_hash
   end
+
+ #  [{"localized_display_name"=>"uberX", "duration"=>18, "estimate"=>"$13-18"},
+ # {"localized_display_name"=>"uberXL", "duration"=>18, "estimate"=>"$20-27"},
+ # {"localized_display_name"=>"uberFAMILY",
+ #  "duration"=>18,
+ #  "estimate"=>"$23-28"},
+ # {"localized_display_name"=>"UberBLACK", "duration"=>18, "estimate"=>"$25-32"},
+ # {"localized_display_name"=>"UberSUV", "duration"=>18, "estimate"=>"$36-44"},
+ # {"localized_display_name"=>"uberT", "duration"=>18, "estimate"=>"Metered"},
+ # {"localized_display_name"=>"Yellow WAV", "duration"=>18, "estimate"=>"$0"}]
   
 end
