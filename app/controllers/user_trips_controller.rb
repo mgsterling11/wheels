@@ -16,6 +16,7 @@ class UserTripsController < ApplicationController
    
     @cost = data.calculate_fare(search_results)
     @time = data.calculate_time(search_results)
+    binding.pry
     render 'show'
     
   end
