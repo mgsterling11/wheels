@@ -16,7 +16,7 @@ class TaxiData
   def build_yellow_cab_url(trip)
     params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
 
-    url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where="
+    url_string = "http://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where="
 
       params.each do | attribute, data |
         range1 = data - 0.001
@@ -32,7 +32,7 @@ class TaxiData
   def build_green_cab_url(trip)
     params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
 
-    url_string = "https://data.cityofnewyork.us/resource/utt9-dvgj.json?$limit=50000&$where="
+    url_string = "http://data.cityofnewyork.us/resource/utt9-dvgj.json?$limit=50000&$where="
 
       params.each do | attribute, data |
         range1 = data - 0.001
@@ -84,7 +84,7 @@ end
   #     dlat1 = dropoff_latitude - 0.001
   #     dlat2 = dropoff_latitude + 0.001
 
-  #   url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where=pickup_longitude%20%3E%20#{plong1}%20AND%20pickup_longitude%20%3C%20#{plong2}%20AND%20pickup_latitude%20%3E%20#{plat1}%20AND%20pickup_latitude%20%3C%20#{plat2}%20AND%20dropoff_longitude%20%3E%20#{dlong1}%20AND%20dropoff_longitude%20%3C%20#{dlong2}%20AND%20dropoff_latitude%20%3E%20#{dlat1}%20AND%20dropoff_latitude%20%3C%20#{dlat2}"
+  #   url_string = "http://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where=pickup_longitude%20%3E%20#{plong1}%20AND%20pickup_longitude%20%3C%20#{plong2}%20AND%20pickup_latitude%20%3E%20#{plat1}%20AND%20pickup_latitude%20%3C%20#{plat2}%20AND%20dropoff_longitude%20%3E%20#{dlong1}%20AND%20dropoff_longitude%20%3C%20#{dlong2}%20AND%20dropoff_latitude%20%3E%20#{dlat1}%20AND%20dropoff_latitude%20%3C%20#{dlat2}"
   #   data = RestClient::Request.execute(method: :get, url: url_string)
   #   test_data = JSON.load(data)
   # end

@@ -24,6 +24,7 @@ class UserTripsController < ApplicationController
    
     @cost = data.calculate_fare(total_results)
     @time = data.calculate_time(total_results)
+
     render 'show'
     
   end
