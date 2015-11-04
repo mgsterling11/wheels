@@ -16,6 +16,11 @@ class UserTripsController < ApplicationController
    
     @cost = data.calculate_fare(search_results)
     @time = data.calculate_time(search_results)
+
+    lyft = Lyft.new(@trip)
+    @lyft_cost = lyft.cost
+    @lyft_time = lyft.time
+    
     binding.pry
     render 'show'
     
