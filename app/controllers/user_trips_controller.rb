@@ -22,9 +22,13 @@ class UserTripsController < ApplicationController
     #add yellow and green cab results
     total_results = yellow_search_results.concat(green_search_results)
    
-    @cost = data.calculate_fare(total_results)
-    @time = data.calculate_time(total_results)
+    @cost = data.calculate_fare(search_results)
+    @time = data.calculate_time(search_results)
 
+    lyft = Lyft.new(@trip)
+    @lyft_cost = lyft.cost
+    @lyft_time = lyft.time
+    
     render 'show'
     
   end
