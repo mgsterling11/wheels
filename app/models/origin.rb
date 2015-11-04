@@ -1,4 +1,5 @@
 class Origin < ActiveRecord::Base
   geocoded_by :address
-  after_validation :geocode, :if => :address_changed?
+  before_save :geocode, :if => :address_changed?
+  has_many :user_trips
 end

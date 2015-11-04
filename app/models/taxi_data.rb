@@ -13,7 +13,7 @@ class TaxiData
     test_data = JSON.load(data)
   end
 
-  def build_url(trip)
+  def build_yellow_cab_url(trip)
     params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
 
     url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where="
@@ -29,7 +29,7 @@ class TaxiData
   end  
 
 # BUILD GREEN URL
-  def build_green_url(trip)
+  def build_green_cab_url(trip)
     params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
 
     url_string = "https://data.cityofnewyork.us/resource/utt9-dvgj.json?$limit=50000&$where="

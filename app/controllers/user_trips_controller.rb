@@ -9,13 +9,21 @@ class UserTripsController < ApplicationController
     @trip.build_origin(address: params[:address1])
     @trip.build_destination(address: params[:address2])
     @trip.save
-  
+    
+    # yellow cab search results
     data = TaxiData.new
-    url = data.build_url(@trip)
-    search_results = data.connection(url)
+    yellow_url = data.build_yellow_cab_url(@trip)
+    yellow_search_results = data.connection(yellow_url)
+    
+    # green cab search results
+    green_url = data.build_green_cab_url(@trip)
+    green_search_results = data.connection(green_url)
+
+    #add yellow and green cab results
+    total_results = yellow_search_results.concat(green_search_results)
    
-    @cost = data.calculate_fare(search_results)
-    @time = data.calculate_time(search_results)
+    @cost = data.calculate_fare(total_results)
+    @time = data.calculate_time(total_results)
     render 'show'
     
   end
