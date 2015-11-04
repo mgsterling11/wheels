@@ -12,9 +12,9 @@ class UserTripsController < ApplicationController
     @trip.save
 
     #connect to apis to get data
-    client = Adapters::CabClient.new
-    yellow_cabs = client.find_yellow_cabs(@trip)
-    green_cabs = client.find_green_cabs(@trip)
+    taxi_trip = Adapters::CabClient.new
+    yellow_cabs = taxi_trip.find_yellow_cabs(@trip)
+    green_cabs = taxi_trip.find_green_cabs(@trip)
     total_results = yellow_cabs.concat(green_cabs)
 
     #get avg cost and time for user trip
@@ -24,13 +24,13 @@ class UserTripsController < ApplicationController
 
 
     # uber search results
-    uber_trip = Uber.new
-    uber_url = uber_trip.build_uber_url(@trip)
-    uber_results = uber_trip.connection(uber_url)
-    @uber_rides = uber_trip.return_uber_results(uber_results)
+    uber_trip = Adapters::UberClient.new   
+    uber_results = uber_trip.build_uber_url(@trip)
+    @uber_rides = uber_trip.format_uber_results(uber_results)
 
 
-    lyft = Lyft.new(@trip)
+    lyft = Lyft.new.build_lyft(@trip)
+    
     @lyft_cost = lyft.cost
     @lyft_time = lyft.time
     
