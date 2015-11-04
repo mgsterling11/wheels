@@ -26,7 +26,7 @@ class UserTripsController < ApplicationController
     # uber search results
     uber_trip = Adapters::UberClient.new   
     uber_results = uber_trip.build_uber_url(@trip)
-    @uber_rides = uber_trip.format_uber_results(uber_results)
+    @uber_ride = uber_trip.format_uber_results(uber_results)
 
 
     lyft = Lyft.new.build_lyft(@trip)

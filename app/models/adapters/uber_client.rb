@@ -18,7 +18,7 @@ module Adapters
         "duration" => (hash["duration"] / 60),
         "estimate" => hash["estimate"]}
       end  
-      uber_hash
+      uber_hash[0]
     end
     
   end
