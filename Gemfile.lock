@@ -57,11 +57,14 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    figaro (1.1.1)
+      thor (~> 0.14)
     geocoder (1.2.12)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     google_directions (0.1.6.2)
       nokogiri (>= 1.4.1)
+    hashie (3.4.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -85,6 +88,9 @@ GEM
     netrc (0.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
     pg (0.18.3)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -170,10 +176,12 @@ DEPENDENCIES
   annotate
   byebug
   coffee-rails (~> 4.1.0)
+  figaro
   geocoder
   google_directions
   jbuilder (~> 2.0)
   jquery-rails
+  omniauth
   pg
   pry
   rails (= 4.2.4)
