@@ -24,12 +24,13 @@ class UserTripsController < ApplicationController
     uber_url = uber_trip.build_uber_url(@trip)
     uber_results = uber_trip.connection(uber_url)
     @uber_ride = uber_trip.return_uber_results(uber_results)
+    binding.pry
 
     #add yellow and green cab results
     total_results = yellow_search_results.concat(green_search_results)
    
-    @cost = data.calculate_fare(search_results)
-    @time = data.calculate_time(search_results)
+    @cost = data.calculate_fare(total_results)
+    @time = data.calculate_time(total_results)
 
     lyft = Lyft.new(@trip)
     @lyft_cost = lyft.cost
