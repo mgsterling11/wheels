@@ -1,7 +1,10 @@
+<div id='nite_taxi'>
+ 
 <div class='row'>
-  <div class='col-md-3'></div>
-  <div class='col-md-9'>
-    <h1>Welcome to Wheels</h1>
+  <div class='col-md-4'></div>
+  <div class='col-md-4'></div>
+  <div class='col-md-4'>
+    <h2>Welcome to Wheels</h2>
     <%= form_tag(user_trips_path, method: :post) do %>
       <%=label_tag("Starting Address")%>
       <%= text_field_tag(:address1)%><br><br> 
@@ -10,6 +13,6 @@
       <%= submit_tag("Search") %>
     <% end %>
   </div>
-  <div class='col-md-3'></div>
 </div> 
+</div>
 
