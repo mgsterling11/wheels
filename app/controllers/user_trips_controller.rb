@@ -55,6 +55,12 @@ class UserTripsController < ApplicationController
     @uber_ride = uber_trip.format_uber_results(uber_results)
   end
 
+  # def generate_google_directions(trip)
+  #   google_results = GoogleMap.new   
+  #   googe_directions = google_results.build_google(trip)
+  #   @google_route = google_results.format_google_results(google_directions)
+  # end
+
   def lyft_results(trip)
     @lyft = Lyft.new.build_lyft(trip) 
   end
