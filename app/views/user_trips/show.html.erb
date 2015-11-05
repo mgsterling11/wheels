@@ -5,20 +5,20 @@
           <p></p>
         </div>
         <div class='col-md-4'>
-          <p></p>
+          
         </div>
         <div class='col-md-4'>
-          <h3>My Trip</h3>     
-          <p>Origin: <%=@trip.origin.address%></p>     
-          <p>Destination: <%=@trip.destination.address %></p>
+          <h3>My Trip</h3>
+          <h4>Origin: <%=@trip.origin.address%> </h4>   
+          <h4>Destination: <%=@trip.destination.address %></h4>
         </div>
       </div>
   </div>
   <div class='row display'>
     <div class='col-md-4'>
       <h3>NYC Taxi:</h3>
-      <p>Cost: $<%= @cost %></p>
-      <p>Time: <%= @time %> minutes</p>
+      <p>Estimated Cost: $<%= @cost %></p>
+      <p>Estimated Time: <%= @time %> minutes</p>
     </div>
 
     <div class='col-md-4'>
@@ -36,8 +36,14 @@
   <div class='row display'>
     <center><p>
       <%= link_to "Taxi Data", taxi_data_path %>
-      <%= link_to "The fare is too damn high!", subway_path %>
-      <%= link_to 'New Search', root_path %>
+      <%= link_to "Subway", subway_path %>
+   
     </p></center>
   </div>
+  <div class='row'>
+    <div class="btn-group btn-group-justified">
+      <a href="<%= root_path %>" class="btn btn-default">New Search</a>
+    </div>
+  </div>
 </div>
+
