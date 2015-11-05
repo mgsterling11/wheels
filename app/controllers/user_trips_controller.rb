@@ -5,11 +5,14 @@ class UserTripsController < ApplicationController
   end
 
   def create
-    #create trip
+    #create Trip
     @trip = UserTrip.new
+    #set trips' user id if user is logged in
+    @trip.user_id = session[:user_id] if logged_in?
     @trip.build_origin(address: params[:address1])
     @trip.build_destination(address: params[:address2])
     @trip.save
+
 
     #connect to apis to get data
     taxi_trip = Adapters::CabClient.new

@@ -1,0 +1,7 @@
+<% if current_user %>
+  <%= "Welcome, #{current_user.name}" %>
+  <%= link_to 'Logout', logout_path %>
+<% else %>
+  <%= link_to "Sign in with Facebook", facebook_login_path %>
+  <%= link_to "Sign in with Uber", uber_login_path %>
+<% end %>
