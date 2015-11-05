@@ -1,27 +1,44 @@
-<h1>My Trip</h1>
-<p><h3>Origin:</h3> <%=@trip.origin.address%></p>
-<p><h3>Destination:</h3> <%=@trip.destination.address %></p>
+<div class ='trip_show'> 
+  <div class='row display'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <p></p>
+        </div>
+        <div class='col-md-4'>
+          <p></p>
+        </div>
+        <div class='col-md-4'>
+          <h3>My Trip</h3>     
+          <p>Origin: <%=@trip.origin.address%></p>     
+          <p>Destination: <%=@trip.destination.address %></p>
+        </div>
+      </div>
+  </div>
+  <div class='row display'>
+    <div class='col-md-4'>
+      <h3>NYC Taxi:</h3>
+      <p>Cost: $<%= @cost %></p>
+      <p>Time: <%= @time %> minutes</p>
+      <%= link_to "Taxi Data", taxi_data_path %>
+    </div>
 
-<div class='col-md-4'>
-  <h3>NYC Taxi:</h3>
-  <p>Cost: <%= @cost %></p>
-  <p>Time: <%= @time %></p>
-  <%= link_to "Taxi Data", taxi_data_path %>
+    <div class='col-md-4'>
+      <h3>Uber X:</h3>
+      <p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
+      <p>Estimated Time:  <%= @uber_ride["duration"] %> minutes</p>
+    </div>
+
+    <div class='col-md-4'>
+      <h3>Lyft:</h3>
+      <p>Estimated Cost: $<%= @lyft.cost %></p>
+      <p>Estimated Time: <%= @lyft.time %> minutes</p>
+    </div>
+  </div>
 </div>
 
-<div class='col-md-4'>
-  <h3>Uber X:</h3>
-  <p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
-  <p>Estimated Time:  <%= @uber_ride["duration"] %> minutes</p>
+<div class='row'>
+  <%= render 'map' %>
 </div>
-
-<div class='col-md-4'>
-  <h3>Lyft:</h3>
-  <p>Estimated Cost: $<%= @lyft.cost %></p>
-  <p>Estimated Time: <%= @lyft.time %> minutes</p>
-</div>
-
-<%= render 'map' %>
 
 
 <%= link_to 'New Search', root_path %>
