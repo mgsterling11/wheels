@@ -3,48 +3,41 @@ require 'rest-client'
 require 'pry'
 
 class GoogleMap
-binding.pry
-
-
 
   def connection
-      @connection = Adapters::DataConnection.new
-    end
-
+    @connection = Adapters::DataConnection.new
+  end
    
-    def build_uber_url(trip)
-      params = {pickup_latitude: trip.origin.latitude, pickup_longitude: trip.origin.longitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
-      url_string = "https://maps.googleapis.com/maps/api/directions/json?origin=#{params[:pickup_latitude]},#{params[:pickup_longitude]}&destination=#{params[:dropoff_latitude]},#{params[:dropoff_longitude]}&mode=transit&key=AIzaSyBxVcOzWLwm2ihNWF4B5obSq-n_7qjJPWQ"
-      connection.query(url_string)
-    end
+  def query(url_string)
+    data = RestClient::Request.execute(method: :get, url: url_string)
+    test_data = JSON.load(data)
+  end
 
 
-#################
+  def build_google(trip)
+    params = {pickup_latitude: trip.origin.latitude, pickup_longitude: trip.origin.longitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
+    url_string = "https://maps.googleapis.com/maps/api/directions/json?origin=#{params[:pickup_latitude]},#{params[:pickup_longitude]}&destination=#{params[:dropoff_latitude]},#{params[:dropoff_longitude]}&mode=transit&key=AIzaSyBxVcOzWLwm2ihNWF4B5obSq-n_7qjJPWQ"
+    connection.query(url_string)
+  end
 
-    def format_uber_results(results)
-      map_hash = test_data['routes'][0]['legs'].map do |hash|
-        {"localized_display_name" => hash["localized_display_name"],
-        "duration" => (hash["duration"] / 60),
-        "estimate" => hash["estimate"]}
-      end  
-      uber_hash[0]
-    end
-  
-    def query(url_string)
-      data = RestClient::Request.execute(method: :get, url: url_string)
-      test_data = JSON.load(data)
-    end
-
-
+  def format_google_results(results)
+    map_hash = test_data['routes'][0]['legs'].map do |hash|
+      {hash['departure_time']['text']
+      hash['arrival_time']['text']
+      hash['distance']['text']
+      hash['duration']['text']
+      hash['steps'][0]['html_instructions']
+      hash['steps'][0]['transit_details']['departure_stop']['name']
+      hash['steps'][0]['transit_details']['arrival_stop']['name']
+      hash['steps'][0]['transit_details']['arrival_stop']['name']
+      hash['steps'][0]['transit_details']['line']['name']
+      hash['steps'][0]['transit_details']['line']['short_name']}
+    end  
+    map_hash
+  end
 
 end
 
-<iframe
-  width="450"
-  height="250"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD2myD37q57UK60glSJpq3o0QzUzEygbeQ&origin=40.705329,-74.0139696&destination=40.7599157,-73.9911492&mode=transit" allowfullscreen>
-</iframe>
 
 
 ############## WORKING CODE ################
