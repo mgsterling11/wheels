@@ -8,10 +8,6 @@
 </head>
 <body>
   <%= render 'layouts/nav' %>
-  <% if current_user %>
-    <%= "Welcome, #{current_user.name}" %>
-  <% end %>
- 
 <%= yield %>
 
 </body>
