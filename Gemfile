@@ -8,6 +8,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-uber'
 
+gem "therubyracer"
+gem 'twitter-bootswatch-rails', :github => 'scottvrosenthal/twitter-bootswatch-rails'
+
+
 gem 'google_directions'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 

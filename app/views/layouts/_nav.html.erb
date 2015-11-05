@@ -1,7 +1,26 @@
-<% if current_user %>
-  <%= "Welcome, #{current_user.name}" %>
-  <%= link_to 'Logout', logout_path %>
-<% else %>
-  <%= link_to "Sign in with Facebook", facebook_login_path %>
-  <%= link_to "Sign in with Uber", uber_login_path %>
-<% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">WHEELS</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+            <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+            <li><%= link_to "Sign in with Facebook", facebook_login_path %></li>
+            <li><%= link_to "Sign in with Uber", uber_login_path %></li>
+        <% end %>
+        <!-- <li><a href="<%= facebook_login_path %>" class='signin'>Sign in with Facebook</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
