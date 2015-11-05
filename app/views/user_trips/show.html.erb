@@ -2,18 +2,24 @@
 <p><h3>Origin:</h3> <%=@trip.origin.address%></p>
 <p><h3>Destination:</h3> <%=@trip.destination.address %></p>
 
-<h3>NYC Taxi:</h3>
-<p>Cost: <%= @cost %></p>
-<p>Time: <%= @time %></p>
-<%= link_to "Taxi Data", taxi_data_path %>
+<div class='col-md-4'>
+  <h3>NYC Taxi:</h3>
+  <p>Cost: <%= @cost %></p>
+  <p>Time: <%= @time %></p>
+  <%= link_to "Taxi Data", taxi_data_path %>
+</div>
 
-<h3>Uber X:</h3>
-<p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
-<p>Estimated Time:  <%= @uber_ride["duration"] %> minutes</p>
+<div class='col-md-4'>
+  <h3>Uber X:</h3>
+  <p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
+  <p>Estimated Time:  <%= @uber_ride["duration"] %> minutes</p>
+</div>
 
-<h3>Lyft:</h3>
-<p>Estimated Cost: $<%= @lyft.cost %></p>
-<p>Estimated Time: <%= @lyft.time %> minutes</p>
+<div class='col-md-4'>
+  <h3>Lyft:</h3>
+  <p>Estimated Cost: $<%= @lyft.cost %></p>
+  <p>Estimated Time: <%= @lyft.time %> minutes</p>
+</div>
 
 <%= link_to "The fare is too damn high!", subway_path %>
 
