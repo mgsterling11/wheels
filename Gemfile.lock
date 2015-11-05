@@ -144,6 +144,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    recursive-open-struct (0.6.5)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -206,6 +207,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.2.4)
+  recursive-open-struct
   rest-client
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
