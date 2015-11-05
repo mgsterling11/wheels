@@ -5,6 +5,7 @@ gem 'pry'
 
 gem 'figaro'
 gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'google_directions'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
