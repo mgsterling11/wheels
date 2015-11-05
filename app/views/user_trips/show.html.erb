@@ -1,24 +1,19 @@
 <h1>My Trip</h1>
-<h3>Origin: <%=@trip.origin.address%></h3>
-<h3>Destination: <%=@trip.destination.address %></h3>
-<h3>Cost Estimate: <%= @cost %></h3>
-<h3>Time Estimate: <%= @time %></h3>
+<p><h3>Origin:</h3> <%=@trip.origin.address%></p>
+<p><h3>Destination:</h3> <%=@trip.destination.address %></p>
+
+<h3>NYC Taxi:</h3>
+<p>Cost: <%= @cost %></p>
+<p>Time: <%= @time %></p>
 
 
-<h3>Uber Rides:</h3>
-  <ul> 
-    <% @uber_rides.each do |ride| %>
-    <li>
-    <p>Level: <%= ride["localized_display_name"] %></p>
-    <p>Duration:  <%= ride["duration"] %></p>
-    <p>Estimated Cost: <%= ride["estimate"] %></p>
-    </li>
-    <% end %>
-  </ul>
+<h3>Uber X:</h3>
+<p>Duration:  <%= @uber_ride["duration"] %></p>
+<p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
 
-
-<h3>Lyft Cost Estimate: <%= @lyft_cost %></h3>
-<h3>Lyft Time Estimate: <%= @lyft_time %></h3>
+<h3>Lyft:</h3>
+<p>Cost Estimate: <%= @lyft_cost %></p>
+<p>Time Estimate: <%= @lyft_time %></p>
 
 
 
