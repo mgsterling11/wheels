@@ -23,6 +23,11 @@ class UserTripsController < ApplicationController
     render 'taxi_data'
   end
 
+  def subway
+    @trip = UserTrip.last
+    render 'subway'
+  end
+
   private
 
   def set_trip
