@@ -106,6 +106,9 @@ function initMap() {
 
   var transitLayer = new google.maps.TransitLayer();
   transitLayer.setMap(map);
+
+  // var trafficLayer = new google.maps.TrafficLayer();
+  // trafficLayer.setMap(map);
   
   // Create a renderer for directions and bind it to the map.
   var directionsDisplay = new google.maps.DirectionsRenderer({map: map});
