@@ -12,3 +12,23 @@
 .content {
   padding: 40px, 20px, 20px, 20px;
 }
+
+.trip_show {
+  background-image: url('city.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 800px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.display {
+  background-color: white;
+  opacity: 0.6;
+}
+
+.user_name {
+  color: white;
+  opacity: 0.7;
+}
