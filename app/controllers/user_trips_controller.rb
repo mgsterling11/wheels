@@ -11,7 +11,6 @@ class UserTripsController < ApplicationController
     find_cab_time(total_results) # return @time
     uber_results(@trip) #return @uber_ride
     lyft_results(@trip) #return @lyft
-
     #create historical trips
     total_results.map {|trip| HistoricalTrip.create(trip)} 
     # "tpep_dropoff_datetime"=>"2015-02-25T23:51:03.000"
