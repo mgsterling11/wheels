@@ -19,7 +19,6 @@
       <h3>NYC Taxi:</h3>
       <p>Cost: $<%= @cost %></p>
       <p>Time: <%= @time %> minutes</p>
-      <%= link_to "Taxi Data", taxi_data_path %>
     </div>
 
     <div class='col-md-4'>
@@ -34,12 +33,11 @@
       <p>Estimated Time: <%= @lyft.time %> minutes</p>
     </div>
   </div>
+  <div class='row display'>
+    <center><p>
+      <%= link_to "Taxi Data", taxi_data_path %>
+      <%= link_to "The fare is too damn high!", subway_path %>
+      <%= link_to 'New Search', root_path %>
+    </p></center>
+  </div>
 </div>
-
-<div class='row'>
-  <%= render 'map' %>
-</div>
-
-<%= link_to "The fare is too damn high!", subway_path %>
-
-<%= link_to 'New Search', root_path %>
