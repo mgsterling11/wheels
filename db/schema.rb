@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104233950) do
+ActiveRecord::Schema.define(version: 20151105134656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,28 @@ ActiveRecord::Schema.define(version: 20151104233950) do
     t.string "address"
     t.float  "latitude"
     t.float  "longitude"
+  end
+
+  create_table "historical_trips", force: :cascade do |t|
+    t.float    "pickup_longitude"
+    t.float    "pickup_latitude"
+    t.float    "dropoff_longitude"
+    t.float    "dropoff_latitude"
+    t.float    "tip_amount"
+    t.float    "total_amount"
+    t.integer  "passenger_count"
+    t.float    "trip_distance"
+    t.datetime "tpep_pickup_datetime"
+    t.datetime "tpep_dropoff_datetime"
+    t.time     "pickup_time"
+    t.float    "extra"
+    t.float    "fare_amount"
+    t.float    "mta_tax"
+    t.float    "payment_type"
+    t.float    "ratecodeid"
+    t.integer  "vendorid"
+    t.float    "tolls_amount"
+    t.string   "store_and_fwd_flag"
   end
 
   create_table "origins", force: :cascade do |t|

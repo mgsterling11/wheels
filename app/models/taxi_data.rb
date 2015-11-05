@@ -13,6 +13,7 @@ class TaxiData
       hash["total_amount"].to_f  
     end  
     average = num.inject{ |sum, el| sum + el }.to_f / num.size
+    average.round(2)
   end
   
   def calculate_time(results)
@@ -23,7 +24,8 @@ class TaxiData
     end
 
     result = time_differences.map { |time| time[:minute] }
-    result.inject{ |sum, el| sum + el }.to_f / result.size
+    average = result.inject{ |sum, el| sum + el }.to_f / result.size
+    average.round(2)
   end
   
 end

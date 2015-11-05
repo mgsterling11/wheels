@@ -5,18 +5,22 @@
 <h3>NYC Taxi:</h3>
 <p>Cost: <%= @cost %></p>
 <p>Time: <%= @time %></p>
-
+<% link_to "some datums", taxi_data_path %>
 
 <h3>Uber X:</h3>
-<p>Duration:  <%= @uber_ride["duration"] %></p>
 <p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
+<p>Estimated Time:  <%= @uber_ride["duration"] %> minutes</p>
 
 <h3>Lyft:</h3>
-<p>Cost Estimate: <%= @lyft_cost %></p>
-<p>Time Estimate: <%= @lyft_time %></p>
+<p>Estimated Cost: $<%= @lyft.cost %></p>
+<p>Estimated Time: <%= @lyft.time %> minutes</p>
 
 <%= render 'map' %>
 
 
 <%= link_to 'New Search', root_path %>
+
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<%= column_chart [{name: "Avg Price Per Hour", data: HistoricalTrip.group_by_hour_of_day(:tpep_pickup_datetime).average(:total_amount)}] %>
 

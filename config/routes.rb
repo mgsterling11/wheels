@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/uber_login', to: redirect('/auth/uber')
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', :as => :logout
+  get '/user_trip/taxi_data' => 'user_trips#taxi_data', :as => :taxi_data
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
