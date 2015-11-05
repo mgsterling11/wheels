@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/user_trips' => 'user_trips#create'
 
   #login routes
-  get   '/login', to: redirect('/auth/facebook')
-  get '/auth/:facebook/callback' => 'sessions#create'
+  get '/facebook_login', to: redirect('/auth/facebook')
+  get '/uber_login', to: redirect('/auth/uber')
+  get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation: first created -> highest priority.

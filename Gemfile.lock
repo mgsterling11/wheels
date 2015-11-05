@@ -107,6 +107,9 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-uber (1.0.1)
+      omniauth (~> 1.2)
+      omniauth-oauth2 (~> 1.1)
     pg (0.18.3)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -199,6 +202,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-facebook
+  omniauth-uber
   pg
   pry
   rails (= 4.2.4)
