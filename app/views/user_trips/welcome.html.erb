@@ -1,9 +1,10 @@
 
 
-<h1>Welcome to TaxiFares.com!</h1>
+<h1>Wheels</h1>
+<h3>Hello, Dave</h3>
 
 
-<%= form_tag(user_trips_path, method: :post) do %>
+<%= form_tag(new_user_trip_path, method: :post) do %>
   <%=label_tag("Starting Address")%>
   <%= text_field_tag(:address1)%><br><br> 
   <%=label_tag("Dropoff Address")%>

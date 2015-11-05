@@ -7,15 +7,20 @@ class UserTripsController < ApplicationController
 
   def create
     total_results = cab_results(@trip)
-    find_cab_cost(total_results) # return @cost
-    find_cab_time(total_results) # return @time
+    total_results.map {|trip| HistoricalTrip.create(trip)} #create historical trips
+    redirect_to @trip
+  end
+
+  def show
+    @trip = UserTrip.find(params[:id])
+    find_cab_cost(HistoricalTrip.all) # return @cost
+    find_cab_time(HistoricalTrip.all) # return @time
     uber_results(@trip) #return @uber_ride
     lyft_results(@trip) #return @lyft
-    #create historical trips
-    total_results.map {|trip| HistoricalTrip.create(trip)} 
-    # "tpep_dropoff_datetime"=>"2015-02-25T23:51:03.000"
-    # "tpep_pickup_datetime"=>"2015-02-25T23:38:02.000"
-    render 'show'
+  end
+
+  def taxi_data
+    render 'taxi_data'
   end
 
   private

@@ -7,19 +7,19 @@ require 'pry'
 
 class TaxiData
 
-  def calculate_fare(results)
+  def calculate_fare(user_trips)
    
-    num = results.map do |hash|
-      hash["total_amount"].to_f  
+    num = user_trips.map do |trip|
+      trip.total_amount
     end  
     average = num.inject{ |sum, el| sum + el }.to_f / num.size
     average.round(2)
   end
   
-  def calculate_time(results)
-    time_differences = results.map do |hash|
-      pickup = DateTime.parse(hash["tpep_pickup_datetime"]) 
-      dropoff = DateTime.parse(hash["tpep_dropoff_datetime"])
+  def calculate_time(user_trips)
+    time_differences = user_trips.map do |trip|
+      pickup = trip.tpep_pickup_datetime
+      dropoff = trip.tpep_dropoff_datetime
       diff = Time.diff(dropoff, pickup, '%y, %M, %w, %d and %H %N %S') 
     end
 
