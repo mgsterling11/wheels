@@ -2,8 +2,6 @@
   <div class='col-md-3'></div>
   <div class='col-md-9'>
     <h1>Welcome to Wheels</h1>
-
-
     <%= form_tag(user_trips_path, method: :post) do %>
       <%=label_tag("Starting Address")%>
       <%= text_field_tag(:address1)%><br><br> 
@@ -13,4 +11,5 @@
     <% end %>
   </div>
   <div class='col-md-3'></div>
-</div>
+</div> 
+

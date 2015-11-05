@@ -3,9 +3,9 @@
 <p><h3>Destination:</h3> <%=@trip.destination.address %></p>
 
 <h3>NYC Taxi:</h3>
-<p>Estimated Cost: $<%= @cost %></p>
-<p>Estimated Time: <%= @time %> minutes</p>
-
+<p>Cost: <%= @cost %></p>
+<p>Time: <%= @time %></p>
+<%= link_to "Taxi Data", taxi_data_path %>
 
 <h3>Uber X:</h3>
 <p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
@@ -15,10 +15,7 @@
 <p>Estimated Cost: $<%= @lyft.cost %></p>
 <p>Estimated Time: <%= @lyft.time %> minutes</p>
 
-
+<%= render 'map' %>
 
 
 <%= link_to 'New Search', root_path %>
-
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<%= line_chart HistoricalTrip.group_by_hour_of_day(:tpep_pickup_datetime).count %>
