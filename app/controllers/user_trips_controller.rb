@@ -12,16 +12,21 @@ class UserTripsController < ApplicationController
   
     data = TaxiData.new
     url = data.build_url(@trip)
-    search_results = data.connection(url)
+    @search_results = data.connection(url)
+
+    
+
+
+# "tpep_dropoff_datetime"=>"2015-02-25T23:51:03.000"
+# "tpep_pickup_datetime"=>"2015-02-25T23:38:02.000"
    
-    @cost = data.calculate_fare(search_results)
-    @time = data.calculate_time(search_results)
+    @cost = data.calculate_fare(@search_results)
+    @time = data.calculate_time(@search_results)
 
     lyft = Lyft.new(@trip)
     @lyft_cost = lyft.cost
     @lyft_time = lyft.time
     
-    binding.pry
     render 'show'
     
   end

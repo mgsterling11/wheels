@@ -9,3 +9,9 @@
 <h3>Lyft Time Estimate: <%= @lyft_time %></h3>
 
 <%= link_to 'New Search', root_path %>
+
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= line_chart UserTrip.group(:id).count %>
+
+
+<!-- @search_results.first["tpep_dropoff_datetime"].to_datetime - @search_results.first["tpep_pickup_datetime"].to_datetime -->
