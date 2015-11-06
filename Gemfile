@@ -7,6 +7,7 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-uber'
+gem 'omniauth-google-oauth2'
 
 gem "therubyracer"
 gem 'twitter-bootswatch-rails', :github => 'scottvrosenthal/twitter-bootswatch-rails'
