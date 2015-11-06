@@ -2,6 +2,7 @@ class UserTripsController < ApplicationController
     before_action :set_trip, only: [:create]
 
   def new
+    HistoricalTrip.destroy_all
     @user = User.find(session[:user_id])
     @favorite_trips = @user.user_trips.map {|trip| ["#{trip.origin.address} to #{trip.destination.address}", trip.id]}
     render 'welcome'
@@ -23,7 +24,6 @@ class UserTripsController < ApplicationController
 
   def taxi_data
     # needs testing
-    javascript_include_tag "//www.google.com/jsapi", "chartkick" 
     render 'taxi_data'
   end
 
@@ -35,12 +35,10 @@ class UserTripsController < ApplicationController
   private
 
   def set_trip
-    params[:trip] ? @trip = trip.find(params[:trip]) | @trip = UserTrip.new
-    @trip.origin ? origin = @trip.origin | origin = params[:address1]
-    @trip.destination ? destination = @trip.destination | destination = params[:address2]
+    params[:trip] != "" ? @trip = UserTrip.find(params[:trip]) : @trip = UserTrip.new
+    @trip.build_origin(address: params[:address1]) unless @trip.origin
+    @trip.build_destination(address: params[:address2]) unless @trip.destination
     @trip.user_id = session[:user_id] if logged_in?
-    @trip.build_origin(address: origin)
-    @trip.build_destination(address: destination)
     @trip.save
     @trip
   end
@@ -50,7 +48,12 @@ class UserTripsController < ApplicationController
     yellow_cabs = taxi_trip.find_yellow_cabs(trip)
     green_cabs = taxi_trip.find_green_cabs(trip)
     total_results = yellow_cabs.concat(green_cabs)
-    @message = "Sorry, there are no records for that trip." unless total_results
+    if total_results.count > 0
+      return total_results
+    else
+      @message = "Sorry, there are no records for that trip."
+      render 'welcome'
+    end
   end
 
   def find_cab_cost(total_results)

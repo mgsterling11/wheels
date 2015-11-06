@@ -19,7 +19,7 @@ module Adapters
       params = {pickup_longitude: trip.origin.longitude, pickup_latitude: trip.origin.latitude, dropoff_longitude: trip.destination.longitude, dropoff_latitude: trip.destination.latitude}
 
       url_string = "https://data.cityofnewyork.us/resource/2yzn-sicd.json?$limit=50000&$where="
-
+      binding.pry
         params.each do | attribute, data |
           range1 = data - 0.001
           range2 = data + 0.001

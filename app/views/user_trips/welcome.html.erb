@@ -16,7 +16,7 @@
       <%= label_tag("Dropoff Address")%>
       <%= text_field_tag(:address2)%><br><br>
       <%= label_tag("Favorite Trips")%><br><br>
-      <%= select_tag(:trip, options_for_select(@favorite_trips, 1)%><br><br>
+      <%= select_tag(:trip, options_for_select(@favorite_trips), prompt: "Or pick a trip you've made before", include_blank: true)%><br><br>
       <%= submit_tag("Search") %>
     <% end %>
   </div>
