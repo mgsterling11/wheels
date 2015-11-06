@@ -67,8 +67,24 @@
   opacity: 0.7;
 }
 
-.button {
+.uber_button {
   background-image: url('UBER_API_Button_1x_Black_14px_round.png');
+  background-size: cover;
+  width: 280px;    
+  height: 44px;
+  margin: 0 auto;
+}
+
+.lyft_button {
+  background-image: url('lyft_button.png');
+  background-size: cover;
+  width: 280px;    
+  height: 44px;
+  margin: 0 auto;
+}
+
+.arro_button {
+  background-image: url('arro_button.jpg');
   background-size: cover;
   width: 280px;    
   height: 44px;

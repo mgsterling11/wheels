@@ -20,15 +20,17 @@
       <h3>NYC Taxi:</h3>
       <p>Estimated Cost: $<%= @cost %></p>
       <p>Estimated Time: <%= @time %> minutes</p>
-      <br>
-      <br>
+      <a href="http://www.goarro.com/">
+        <div class="arro_button">
+        </div>
+      </a>
     </div>
     <div class='col-md-4 display'>
       <h3>Uber X:</h3>
       <p>Estimated Cost: <%= @uber_ride["estimate"] %></p>
       <p>Estimated Time:  <%= @uber_ride["duration"] %> minutes</p>
       <a href="https://m.uber.com/sign-up?">
-        <div class="button">
+        <div class="uber_button">
           <p id="time">ESTIMATING TIME</p>
         </div>
       </a>
@@ -37,8 +39,10 @@
       <h3>Lyft:</h3>
       <p>Estimated Cost: $<%= @lyft.cost %></p>
       <p>Estimated Time: <%= @lyft.time %> minutes</p>
-      <br>
-      <br>
+      <a href="https://www.lyft.com/">
+        <div class="lyft_button">
+        </div>
+      </a>
     </div>
   </div>
 
