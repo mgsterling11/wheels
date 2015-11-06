@@ -19,11 +19,14 @@
     <div class='col-md-4 display'>
       <ul>
         <% @trips.each do |trip| %>
-          <li>
+          <p>
             Origin: <%= trip.origin.address%><br>
             Destination: <%= trip.destination.address %>
-            <%= button_to "delete", trip, :method => :delete %>
-          </li>
+            <div class="row">
+              <%= link_to "Delete", trip, :method => :delete %> | 
+              <%= link_to "View Trip", user_trip_path(trip) %>
+            </div>
+          </p>
 
         <% end %>
       </ul>
