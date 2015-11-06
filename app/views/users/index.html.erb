@@ -1,0 +1,28 @@
+<div class ='trip_show'> 
+
+  <div class= 'row centered_text'>
+    <h2>MY TRIPS</h2>
+  </div>
+  <br>
+  <div class='row'>
+    <div class='centered_text'>
+      <a href="<%= root_path %>" class="btn btn-primary btn-lg">New Search</a>
+    </div>
+  </div>
+<br>
+  <div class='row'>
+    <div class='col-md-4 display first'>
+      <ul>
+        <% @trips.each do |trip| %>
+          <li>Origin: <%= trip.origin.address%><br>
+          Destination: <%= trip.destination.address %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class='col-md-4 display_no_opaicty'></div>
+    <div class='col-md-4 display_no_opacity centered_vertical'>
+     
+    </div>
+  </div>
+
+</div>

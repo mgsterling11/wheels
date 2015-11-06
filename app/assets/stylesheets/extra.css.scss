@@ -1,4 +1,4 @@
-#nite_taxi {
+.welcome_background {
   background-image: url('cab.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +30,40 @@
 
 .display {
   background-color: white;
-  opacity: 0.6;
+  opacity: 0.7;
+  padding: 10px;
+  margin-right: 5%;
+  width: 26.66%;
+}
+
+.first {
+  margin-left: 5%;
+}
+
+.banner {
+  background-color: white;
+  opacity: 0.7;
+  padding: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
+  width: 90%;
+  text-align: center;
+}
+
+.display {
+  padding: 10px;
+  margin-right: 5%;
+  width: 26.66%;
+}
+
+.centered_text {
+  text-align: center;
+}
+
+.centered_vertical {
+  text-align: center;
+  line-height: 400px;
+  padding-left: 200px;
 }
 
 .user_name {

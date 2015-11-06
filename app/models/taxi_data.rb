@@ -25,7 +25,7 @@ class TaxiData
 
     result = time_differences.map { |time| time[:minute] }
     average = result.inject{ |sum, el| sum + el }.to_f / result.size
-    average.round(2)
+    average.round(0)
   end
   
 end
