@@ -41,8 +41,20 @@
   text-align: center;
 }
 
+.display {
+  padding: 10px;
+  margin-right: 5%;
+  width: 26.66%;
+}
+
 .centered_text {
   text-align: center;
+}
+
+.centered_vertical {
+  text-align: center;
+  line-height: 400px;
+  padding-left: 200px;
 }
 
 .user_name {

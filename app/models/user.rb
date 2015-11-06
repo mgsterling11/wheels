@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :usertrips
+  has_many :user_trips
 
    def self.create_with_omniauth(auth)
     create! do |user|
