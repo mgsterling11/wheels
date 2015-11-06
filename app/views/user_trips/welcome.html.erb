@@ -6,8 +6,10 @@
       <h4 class='user_name'><%= "Welcome, #{current_user.name}" %></h4>
     <% end %>
   </div>
-  <div class='col-md-4'></div>
-  <div class='col-md-4 form-group'>
+  <div class='col-md-4'>
+    <br>
+  </div>
+  <div class='col-md-4'>
   
     <h2>Welcome to Wheels</h2>
     <%= form_tag(user_trips_path, method: :post) do %>

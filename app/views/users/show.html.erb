@@ -1,8 +1,9 @@
 <div class ='trip_show'> 
-
+  <br>
   <div class= 'row centered_text'>
     <h2>MY TRIPS</h2>
   </div>
+  <br>
   <br>
   <div class='row'>
     <div class='centered_text'>
@@ -10,8 +11,12 @@
     </div>
   </div>
 <br>
+<br>
   <div class='row'>
-    <div class='col-md-4 display first'>
+    <div class='col-md-4 display_no_opacity'>
+      
+    </div>
+    <div class='col-md-4 display'>
       <ul>
         <% @trips.each do |trip| %>
           <li>
@@ -23,7 +28,6 @@
         <% end %>
       </ul>
     </div>
-    <div class='col-md-4 display_no_opaicty'></div>
     <div class='col-md-4 display_no_opacity centered_vertical'>
      
     </div>
