@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy', :as => :logout
   get '/user_trips/:id/taxi_data' => 'user_trips#taxi_data', :as => :taxi_data
   get '/user_trips/:id/subway_directions' => 'user_trips#subway', :as => :subway
+  get '/my_trips' => 'users#index', :as => :my_trips
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
