@@ -2,9 +2,11 @@ class UserTripsController < ApplicationController
     before_action :set_trip, only: [:create]
 
   def new
-    HistoricalTrip.destroy_all
-    @user = User.find(session[:user_id])
-    @favorite_trips = @user.user_trips.map {|trip| ["#{trip.origin.address} to #{trip.destination.address}", trip.id]}
+    if session[:user_id]
+      HistoricalTrip.destroy_all
+      @user = User.find(session[:user_id])
+      @favorite_trips = @user.user_trips.map {|trip| ["#{trip.origin.address} to #{trip.destination.address}", trip.id]}
+    end
     render 'welcome'
   end
 
@@ -12,6 +14,11 @@ class UserTripsController < ApplicationController
     total_results = cab_results(@trip)
     total_results.map {|trip| HistoricalTrip.create(trip)} #create historical trips
     redirect_to @trip
+  end
+
+  def destroy
+    UserTrip.destroy(params[:id])    
+    redirect_to my_trips_path
   end
 
   def show
@@ -35,7 +42,7 @@ class UserTripsController < ApplicationController
   private
 
   def set_trip
-    params[:trip] != "" ? @trip = UserTrip.find(params[:trip]) : @trip = UserTrip.new
+    params[:trip] != "" &&  params[:trip] ? @trip = UserTrip.find(params[:trip]) : @trip = UserTrip.new
     @trip.build_origin(address: params[:address1]) unless @trip.origin
     @trip.build_destination(address: params[:address2]) unless @trip.destination
     @trip.user_id = session[:user_id] if logged_in?

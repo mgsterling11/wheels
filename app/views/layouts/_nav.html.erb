@@ -13,7 +13,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
         <% if current_user %>
-            <li><%= link_to 'My Trips', my_trips_path %></li>
+            <% @user = User.find(session[:user_id]) %>
+            <li><%= link_to 'My Trips', my_trips_path(@user) %></li>
             <li><%= link_to 'Logout', logout_path %></li>
         <% else %>
             <li><%= link_to "Sign in with Facebook", facebook_login_path %></li>
