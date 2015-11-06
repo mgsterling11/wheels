@@ -1,0 +1,6 @@
+<ul>
+  <% @trips.each do |trip| %>
+    <li>Origin: <%= trip.origin.address%><br>
+    Destination: <%= trip.destination.address %></li>
+  <% end %>
+</ul>
