@@ -9,8 +9,6 @@
   margin: 0;
 }
 
-
-
 .content {
   padding: 40px, 20px, 20px, 20px;
 }
@@ -27,7 +25,7 @@
 
 .display {
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   padding: 10px;
   margin-right: 5%;
   width: 26.66%;
@@ -39,7 +37,7 @@
 
 .banner {
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   padding: 20px;
   margin-right: 5%;
   margin-left: 5%;
@@ -51,6 +49,7 @@
   padding: 10px;
   margin-right: 5%;
   width: 26.66%;
+  text-align: center;
 }
 
 .centered_text {
@@ -66,4 +65,19 @@
 .user_name {
   color: white;
   opacity: 0.7;
+}
+
+.button {
+  background-image: url('UBER_API_Button_1x_Black_14px_round.png');
+  background-size: cover;
+  width: 280px;    
+  height: 44px;
+  margin: 0 auto;
+}
+
+#time {
+    text-align: right;
+    margin-top: 2%;
+    padding-top: 12px;
+    padding-right: 14px;
 }
