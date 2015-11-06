@@ -14,8 +14,12 @@
     <div class='col-md-4 display first'>
       <ul>
         <% @trips.each do |trip| %>
-          <li>Origin: <%= trip.origin.address%><br>
-          Destination: <%= trip.destination.address %></li>
+          <li>
+            Origin: <%= trip.origin.address%><br>
+            Destination: <%= trip.destination.address %>
+            <%= button_to "delete", trip, :method => :delete %>
+          </li>
+
         <% end %>
       </ul>
     </div>
