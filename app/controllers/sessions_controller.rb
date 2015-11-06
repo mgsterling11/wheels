@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   
-  def create       
-    user = User.find_by_provider_and_uid(auth) || User.create_with_omniauth(auth)     
+  def create
+    user = User.find_by_provider_and_uid(auth) || User.create_with_omniauth(auth)
+      if auth[:provider] == 'uber'
+        user.name = (auth[:info][:first_name] + ' ' + auth[:info][:last_name])
+        user.save
+      end     
     session[:user_id] = user.id     
     redirect_to root_url
   end
