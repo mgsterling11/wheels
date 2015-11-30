@@ -52,9 +52,9 @@ class UserTripsController < ApplicationController
 
   def cab_results(trip)
     taxi_trip = Adapters::CabClient.new
-    yellow_cabs = taxi_trip.find_yellow_cabs(trip)
-    green_cabs = taxi_trip.find_green_cabs(trip)
-    total_results = yellow_cabs.concat(green_cabs)
+    total_results = taxi_trip.find_cab_trips(trip)
+    binding.pry
+    # total_results = yellow_cabs.concat(green_cabs)
     if total_results.count > 0
       return total_results
     else
