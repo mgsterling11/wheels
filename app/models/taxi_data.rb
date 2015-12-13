@@ -8,10 +8,9 @@ require 'pry'
 class TaxiData
 
   def calculate_fare(user_trips)
-   
     num = user_trips.map do |trip|
       trip.total_amount
-    end  
+    end.compact  
     average = num.inject{ |sum, el| sum + el }.to_f / num.size
     average.round(2)
   end

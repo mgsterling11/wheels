@@ -30,7 +30,6 @@ class UserTripsController < ApplicationController
   end
 
   def taxi_data
-    # needs testing
     render 'taxi_data'
   end
 
@@ -76,12 +75,6 @@ class UserTripsController < ApplicationController
     uber_results = uber_trip.build_uber_url(trip)
     @uber_ride = uber_trip.format_uber_results(uber_results)
   end
-
-  # def generate_google_directions(trip)
-  #   google_results = GoogleMap.new   
-  #   googe_directions = google_results.build_google(trip)
-  #   @google_route = google_results.format_google_results(google_directions)
-  # end
 
   def lyft_results(trip)
     @lyft = Lyft.new.build_lyft(trip) 
