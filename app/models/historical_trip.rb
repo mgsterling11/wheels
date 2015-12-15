@@ -1,3 +1,2 @@
-class HistoricalTrip < ActiveRecord::Base
-  
+class HistoricalTrip < ActiveRecord::Base  
 end
